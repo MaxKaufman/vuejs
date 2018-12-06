@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1>{{ carName }}</h1>
+        <h1>{{ title }}</h1>
 
         <app-car
-                :carName="carNamePar"
+                :carName="carName"
                 :carYear="parentCarYear">
         </app-car>
     </div>
@@ -15,8 +15,9 @@
     export default {
         data() {
             return {
-                carNamePar: 'TESLA from parent',
-                parentCarYear: "2099"
+                title: 'Car Catalog',
+                carName: 'Tesla _parent',
+                parentCarYear: 2018
             }
         },
         components: {
