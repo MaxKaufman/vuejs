@@ -1,10 +1,12 @@
 <template>
     <div>
-        <h1>{{ title }}</h1>
+        <h1>{{ carName }}</h1>
 
         <app-car
                 :carName="carName"
-                :carYear="parentCarYear">
+                :carYear="parentCarYear"
+                @nameChanged="nameFromChild($event)"
+        >
         </app-car>
     </div>
 </template>
@@ -22,6 +24,11 @@
         },
         components: {
             appCar: Car
+        },
+        methods: {
+            nameFromChild: function ($event) {
+                return this.carName = $event
+            }
         }
     }
 </script>
