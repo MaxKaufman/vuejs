@@ -5,6 +5,7 @@
         <p>Year: {{ carYear }}</p>
         <input type="text" v-model="newName">
         <button @click="changeName">Change name</button>
+        <button @click="defName()">Change to default (from parent)</button>
     </div>
 </template>
 
@@ -25,7 +26,8 @@
             carYear: {
                 type: Number,
                 required: true
-            }
+            },
+            defName: Function
         },
         computed: {
             reverseName() {

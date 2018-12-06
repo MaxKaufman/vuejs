@@ -5,6 +5,7 @@
         <app-car
                 :carName="carName"
                 :carYear="parentCarYear"
+                :defName="setDefaultName"
                 @nameChanged="nameFromChild($event)"
         >
         </app-car>
@@ -18,7 +19,7 @@
         data() {
             return {
                 title: 'Car Catalog',
-                carName: 'Tesla _parent',
+                carName: 'Tesla',
                 parentCarYear: 2018
             }
         },
@@ -27,7 +28,10 @@
         },
         methods: {
             nameFromChild: function ($event) {
-                return this.carName = $event
+                this.carName = $event
+            },
+            setDefaultName: function () {
+                this.carName = 'Tesla'
             }
         }
     }
