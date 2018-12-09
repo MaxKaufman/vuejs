@@ -1,7 +1,8 @@
 <template>
-    <div class="car">
-       <h2>Car</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio iste labore nam praesentium quibusdam ullam ut. Accusamus adipisci, cumque doloremque facere impedit numquam obcaecati omnis quisquam unde vero, voluptas voluptatum.</p>
+    <div>
+       <slot name="title"></slot>
+        <hr>
+        <slot name="text"></slot>
     </div>
 </template>
 
@@ -11,8 +12,12 @@
     }
 </script>
 
-<style>
+<style scoped>
     div {
+        padding: 9px;
         border: 1px dotted blue;
+    }
+    h2 {
+        color: red;
     }
 </style>
