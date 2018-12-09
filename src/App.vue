@@ -1,19 +1,8 @@
 <template>
     <div>
-        <h1>{{ carName }}</h1>
+        <app-counter></app-counter>
 
-        <app-counter>
-
-        </app-counter>
-
-        <app-car
-                :carName="carName"
-                :carYear="parentCarYear"
-                :defName="setDefaultName"
-                @nameChanged="nameFromChild($event)"
-                @counterUpdated="counter = $event"
-        >
-        </app-car>
+        <app-car></app-car>
     </div>
 </template>
 
@@ -22,25 +11,10 @@
     import Counter from './Counter.vue'
 
     export default {
-        data() {
-            return {
-                title: 'Car Catalog',
-                carName: 'Tesla',
-                parentCarYear: 2018,
-            }
-        },
         components: {
             appCar: Car,
             appCounter: Counter
         },
-        methods: {
-            nameFromChild: function ($event) {
-                this.carName = $event
-            },
-            setDefaultName: function () {
-                this.carName = 'Tesla'
-            }
-        }
     }
 </script>
 
