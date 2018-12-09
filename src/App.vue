@@ -2,11 +2,16 @@
     <div>
         <h1>{{ carName }}</h1>
 
+        <app-counter>
+
+        </app-counter>
+
         <app-car
                 :carName="carName"
                 :carYear="parentCarYear"
                 :defName="setDefaultName"
                 @nameChanged="nameFromChild($event)"
+                @counterUpdated="counter = $event"
         >
         </app-car>
     </div>
@@ -14,17 +19,19 @@
 
 <script>
     import Car from './Car.vue'
+    import Counter from './Counter.vue'
 
     export default {
         data() {
             return {
                 title: 'Car Catalog',
                 carName: 'Tesla',
-                parentCarYear: 2018
+                parentCarYear: 2018,
             }
         },
         components: {
-            appCar: Car
+            appCar: Car,
+            appCounter: Counter
         },
         methods: {
             nameFromChild: function ($event) {

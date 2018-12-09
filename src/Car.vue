@@ -6,11 +6,12 @@
         <input type="text" v-model="newName">
         <button @click="changeName">Change name</button>
         <button @click="defName()">Change to default (from parent)</button>
+        <button @click="updateCounter()">Upd counter</button>
     </div>
 </template>
 
 <script>
-
+    import {eventEmitter} from './main'
     export default {
         //props: ['carName', 'carYear'],
         data() {
@@ -27,7 +28,7 @@
                 type: Number,
                 required: true
             },
-            defName: Function
+            defName: Function,
         },
         computed: {
             reverseName() {
@@ -38,6 +39,9 @@
             changeName() {
                 this.carName = this.newName;
                 this.$emit('nameChanged', this.carName)
+            },
+            updateCounter() {
+                eventEmitter.$emit('counterUpdated', 1)
             }
         }
     }
