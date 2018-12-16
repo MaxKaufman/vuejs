@@ -8,6 +8,7 @@
 </template>
 
 <script>
+    //new content
     import Car from './Car.vue'
     import Counter from './Counter.vue'
 
