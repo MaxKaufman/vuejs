@@ -1,26 +1,24 @@
 <template>
     <div>
-        <app-car>
-            <h2 slot="title">{{ carName }}</h2>
-            <p slot="text">Lorem ipsum dolor.</p>
-        </app-car>
+       <h2>{{ title }}</h2>
+       <h2>{{ title | lowercase }}</h2>
+       <h2>{{ title | uppercase | lowercase }}</h2>
     </div>
 </template>
 
 <script>
-    //new content
-    import Car from './Car.vue'
-    import Counter from './Counter.vue'
 
     export default {
         data() {
             return {
-                carName: 'Tesla'
+                title: "SuperPower"
             }
         },
-        components: {
-            appCar: Car,
-        },
+        filters: {
+            lowercase(value) {
+                return value.toLowerCase()
+            }
+        }
     }
 </script>
 
